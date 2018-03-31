@@ -1,0 +1,20 @@
+{
+  "name": "transperth",
+  "version": "1.0.0",
+  "description": "This will find closest bus stops, then map them",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "m.seneque",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parse": "^2.1.0",
+    "fs": "0.0.1-security",
+    "parse": "^1.11.1",
+    "stream": "0.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^9.6.1"
+  }
+}

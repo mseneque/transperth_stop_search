@@ -1,39 +1,39 @@
 export class BinarySearchTree {
 
-    constructor(public value: any){};
+    constructor(public data: any, public lat: number, public long: number){};
 
     public left: BinarySearchTree = null;
     public right: BinarySearchTree = null;
 
-    insert(value) {
-        if (value <= this.value) {
-            if (!this.left) this.left = new BinarySearchTree(value);
-            else this.left.insert(value);
+    insert(data, lat, long) {
+        if (lat <= this.lat) {
+            if (!this.left) this.left = new BinarySearchTree(data, lat, long);
+            else this.left.insert(data, lat, long);
         }
-        else if (value > this.value) {
-            if (!this.right) this.right = new BinarySearchTree(value);
-            else this.right.insert(value);
+        else if (lat > this.lat) {
+            if (!this.right) this.right = new BinarySearchTree(data, lat, long);
+            else this.right.insert(data, lat, long);
         }
     }
 
-    contains(value): Boolean {
-        if (this.value === value) return true;
-        if (value < this.value) {
+    contains(lat): Boolean {
+        if (this.lat === lat) return true;
+        if (lat < this.lat) {
             if (!this.left) return false;
-            else return this.left.contains(value);
+            else return this.left.contains(lat);
         }
-        else if (value > this.value) {
+        else if (lat > this.lat) {
             if (!this.right) return false;
-            else return this.right.contains(value);
+            else return this.right.contains(lat);
         }
     }
 
     depthFirstTraversal(iteratorFunc, order) {
-        if (order === 'pre-order') iteratorFunc(this.value);
+        if (order === 'pre-order') iteratorFunc(this);
         if (this.left) this.left.depthFirstTraversal(iteratorFunc, order);
-        if (order === 'in-order') iteratorFunc(this.value);
+        if (order === 'in-order') iteratorFunc(this);
         if (this.right) this.right.depthFirstTraversal(iteratorFunc, order);
-        if (order === 'post-order') iteratorFunc(this.value);
+        if (order === 'post-order') iteratorFunc(this);
     };
        
     breadthFirstTraversal(iteratorFunc) {
@@ -48,12 +48,12 @@ export class BinarySearchTree {
        
     getMinVal() {
         if (this.left) return this.left.getMinVal();
-        else return this.value;
+        else return this.lat;
     };
        
     getMaxVal() {
         if (this.right) return this.right.getMaxVal();
-        else return this.value;
+        else return this.lat;
     };
 
 };
